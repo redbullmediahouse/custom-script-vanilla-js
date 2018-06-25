@@ -1,0 +1,19 @@
+{
+  "name": "custom-script-vanilla-js",
+  "version": "1.0.0",
+  "description": "Example repo to create a custom script without any framework",
+  "main": "src/index.js",
+  "author": "Red Bull Media House",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack -env prod",
+    "serve": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

@@ -1,0 +1,30 @@
+node_modules
+jspm_packages
+logs
+npm-debug.log
+yarn-error.log
+reports
+
+#dev directory, files served by express
+target
+lib
+dist
+
+#OS trash
+.DS_Store
+
+#Sublime project files
+*.sublime-workspace
+*.sublime-project
+
+#IDEA project files
+*.idea
+
+#VIM Swap files
+*.swp
+
+# Configs
+configs
+
+.vimrc
+.vscode
