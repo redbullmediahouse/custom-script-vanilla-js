@@ -13,6 +13,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 8080,
+        https: true,
         headers: {
             'Access-Control-Allow-Origin': '*'
         }
