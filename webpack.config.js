@@ -7,7 +7,7 @@ module.exports = {
         library: 'customScript',
         libraryTarget: 'amd',
         path: path.resolve(__dirname, 'dist'),
-        filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash].js' : 'bundle.js'
+        filename: 'bundle.js'
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
