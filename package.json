@@ -6,7 +6,7 @@
   "author": "Red Bull Media House",
   "license": "MIT",
   "scripts": {
-    "build": "webpack -env prod",
+    "build": "webpack",
     "serve": "webpack-dev-server"
   },
   "devDependencies": {
