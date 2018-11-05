@@ -4,3 +4,8 @@
     text-align: center;
     padding: 30px;
 }
+
+.example-video {
+    max-width: 400px;
+    margin: 0 auto;
+}
