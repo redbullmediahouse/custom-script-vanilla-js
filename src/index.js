@@ -1,26 +1,6 @@
 import './styles.css';
 
-const transformedImageData = {
-    data: {
-        id: "rrn:content:images:8bcd3825-cb43-4a91-8e56-c1cddd55ff33:en-INT",
-        type: "image",
-        title: "Air Race Zivko Edge",
-        uriSlug: "8bcd3825-cb43-4a91-8e56-c1cddd55ff33",
-        copyright: "© Red Bull Content Pool",
-        altText: "Air Race Zivko Edge",
-        imageEssence: {
-            provider: "imageserver",
-            raw: {
-                width: 5184,
-                height: 3456
-            },
-            extension: ".jpg",
-            mimeType: "image/jpeg",
-            templateURL: "rbcom/010/2014-09-12/1331678164612_4/{op}/1/zivko-edge-red-bull.jpg"
-        },
-        subType: "image"
-    }
-};
+
 
 function start(params) {
     const {el, config, options} = params;
@@ -41,7 +21,7 @@ function start(params) {
     const image = document.createElement('img');
     /*
         resolveImageUrl takes two arguments.
-        1. An image asset from the content repository transformed using rb3Schema=v1:image
+        1. A content repository endpoint pointing to an image asset. The required `rb3Schema=v1:image` is added if not provided.
         2. An options object with the following possibilities:
             width: The desired width of the image (required).
             and one of the following:
@@ -52,21 +32,21 @@ function start(params) {
             as the transformation is done on the image server, not on the client.
 
             Examples:
-            resolveImageUrl(redBullLogo, {width: 500, aspectRatio: 1.78});
-            resolveImageUrl(redBullLogo, {width: 500, height: 200});
+            resolveImageUrl(imageEndpoint, {width: 500, aspectRatio: 1.78});
+            resolveImageUrl(imageEndpoint, {width: 500, height: 200});
      */
-    const imageSrc = resolveImageUrl(transformedImageData.data, {width: 400, aspectRatio: 1});
-    image.setAttribute('src', imageSrc);
-    wrapper.appendChild(image);
-    el.appendChild(wrapper);
-
-    console.log('started');
-    return Promise.resolve({
+    const exampleImageEndpoint = '/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT';
+    return resolveImageUrl(exampleImageEndpoint, {width: 400, aspectRatio: 1}).then(imageSrc => {
+        image.setAttribute('src', imageSrc);
+        wrapper.appendChild(image);
+        el.appendChild(wrapper);
+        console.log('started');
+    }).then(() => ({
         stop: () => {
             console.log('stopped');
             return Promise.resolve();
         }
-    });
+    }));
 }
 
 export {start};
