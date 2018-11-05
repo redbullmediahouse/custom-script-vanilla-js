@@ -11,7 +11,6 @@ function start(options) {
     return Promise.resolve({
         stop: () => {
             console.log('stopped');
-            return Promise.resolve();
         }
     });
 }
