@@ -4,7 +4,7 @@ import './styles.css';
 
 function start(params) {
     const {el, config, options} = params;
-    const {resolveTranslation, resolveImageUrl, renderInlineVideoPlayer} = options;
+    const {resolveTranslation, resolveImage, renderInlineVideoPlayer} = options;
 
     const wrapper = document.createElement('div');
     wrapper.className = 'custom-class';
@@ -28,7 +28,7 @@ function start(params) {
 
     return Promise.all([
         /*
-           resolveImageUrl takes two arguments.
+           resolveImage takes two arguments.
            1. A content repository endpoint pointing to an image asset. The required `rb3Schema=v1:image` is added if not provided.
            2. An options object with the following possibilities:
                width: The desired width of the image (required).
@@ -40,10 +40,13 @@ function start(params) {
                as the transformation is done on the image server, not on the client.
 
                Examples:
-               resolveImageUrl(imageEndpoint, {width: 500, aspectRatio: 1.78});
-               resolveImageUrl(imageEndpoint, {width: 500, height: 200});
+               resolveImage(imageEndpoint, {width: 500, aspectRatio: 1.78});
+               resolveImage(imageEndpoint, {width: 500, height: 200});
         */
-        resolveImageUrl({imageEndpoint: exampleImageEndpoint, options: {width: 400, aspectRatio: 1}}).then(imageSrc => imageEl.setAttribute('src', imageSrc)),
+        resolveImage({imageEndpoint: exampleImageEndpoint, options: {width: 400, aspectRatio: 1}}).then(({image, imageUrl}) => {
+            imageEl.setAttribute('src', imageUrl);
+            imageEl.setAttribute('alt', image.altText);
+        }),
         /*
             renderInlineVideoPlayer takes 3 arguments.
             1. A content repository endpoint pointing to a video asset. The required `rb3Schema=v1:video` is added if not provided.
