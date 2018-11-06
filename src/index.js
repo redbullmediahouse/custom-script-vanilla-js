@@ -60,7 +60,6 @@ function start(params) {
         return {
             stop: () => {
                 console.log('stopped');
-                return Promise.resolve();
             }
         };
     });
