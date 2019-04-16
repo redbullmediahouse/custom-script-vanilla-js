@@ -40,8 +40,8 @@ function start(params) {
                as the transformation is done on the image server, not on the client.
 
                Examples:
-               resolveImageUrl({imageEndpoint: "/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT", width: 500, aspectRatio: 1.78});
-               resolveImageUrl({imageEndpoint: "/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT", width: 500, height: 200});
+               resolveImageUrl({imageEndpoint: "/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT", options: { width: 500, aspectRatio: 1.78}});
+               resolveImageUrl({imageEndpoint: "/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT", options: { width: 500, height: 200}});
         */
         resolveImageUrl({imageEndpoint: exampleImageEndpoint, options: {width: 400, aspectRatio: 1}}).then(({image, imageUrl}) => {
             imageEl.setAttribute('src', imageUrl);
