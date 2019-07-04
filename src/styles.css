@@ -10,13 +10,16 @@
     margin: 0 auto;
 }
 
-.example-text-block {
-    height: 200px;
-    width: 200px;
-    background: mediumaquamarine;
-    text-align: center;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 40px;
-    text-transform: uppercase;
+.login-button {
+    font-size: 24px;
+    border-radius: 8px;
+    background-color: #db0a40;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.login-button--hidden {
+    display: none;
 }
