@@ -76,7 +76,7 @@ function start(params) {
             2. A content repository endpoint loading a playlist. Not required for a single video.
             3. The DOM element the video player should be added to
          */
-        renderInlineVideoPlayer(exampleVideoEndpoint, null, videoEl),
+        renderInlineVideoPlayer(exampleVideoEndpoint, null, videoEl)
     ]).then(([Account]) => {
         RBAccount = Account.RBAccounts;
         const currentUser = Account.user;
@@ -90,8 +90,7 @@ function start(params) {
         customScriptEl.appendChild(wrapper);
 
         loginButtonEl.addEventListener('click', () => {
-            RBAccount.login().then((user) => onUserSignedIn(user));
-        });
+        RBAccount.login().then((user) => onUserSignedIn(user));
 
         /**
          * This Event will be called if the user logs in without a page redirect.
