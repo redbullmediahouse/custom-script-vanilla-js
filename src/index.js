@@ -84,12 +84,13 @@ function start(params) {
             console.log(`Currently logged in user:`, currentUser.userProfile);
         }
 
-        // Update the Token for your activation if required
+        // Update the Token for your activation
         // RBAccount.setToken({application: '123456789'})
         
         customScriptEl.appendChild(wrapper);
 
         loginButtonEl.addEventListener('click', () => {
+
         RBAccount.login().then((user) => onUserSignedIn(user));
 
         /**
