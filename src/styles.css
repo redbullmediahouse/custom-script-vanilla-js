@@ -9,3 +9,14 @@
     max-width: 400px;
     margin: 0 auto;
 }
+
+.example-text-block {
+    height: 200px;
+    width: 200px;
+    background: mediumaquamarine;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+}
