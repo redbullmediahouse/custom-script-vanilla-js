@@ -7,6 +7,7 @@ function start(params) {
     const {resolveTranslation, resolveImageUrl, renderInlineVideoPlayer} = options;
 
     const wrapper = document.createElement('div');
+    wrapper.id = "custom-id";
     wrapper.className = 'custom-class';
 
     const title = document.createElement('h1');
@@ -28,7 +29,7 @@ function start(params) {
 
     return Promise.all([
         /*
-           resolveImage takes one argument.
+           resolveImageUrl takes one argument.
            1. An object with the following possibilities:
                imageEndpoint: A content repository endpoint pointing to an image asset (e.g. /v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT)
                options:
@@ -44,9 +45,8 @@ function start(params) {
                resolveImageUrl({imageEndpoint: "/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT", options: { width: 500, aspectRatio: 1.78}});
                resolveImageUrl({imageEndpoint: "/v3/api/content/v1/images/8bcd3825-cb43-4a91-8e56-c1cddd55ff33/en-INT", options: { width: 500, height: 200}});
         */
-        resolveImageUrl({imageEndpoint: exampleImageEndpoint, options: {width: 400, aspectRatio: 1}}).then(({image, imageUrl}) => {
-            imageEl.setAttribute('src', imageUrl);
-            imageEl.setAttribute('alt', image.altText);
+        resolveImageUrl({imageEndpoint: exampleImageEndpoint, options: {width: 400, aspectRatio: 1}}).then((url) => {
+            imageEl.setAttribute('src', url);
         }),
         /*
             renderInlineVideoPlayer takes 3 arguments.
@@ -69,4 +69,12 @@ function start(params) {
     });
 }
 
-export {start};
+function attach() {
+    const customClass = document.getElementById('custom-id');
+    const textBlockElement = document.createElement('div');
+    textBlockElement.className = 'example-text-block';
+    textBlockElement.innerText = 'This is a sample text';
+    customClass.appendChild(textBlockElement);
+}
+
+export {start, attach};
