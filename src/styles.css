@@ -1,22 +1,38 @@
-.custom-class {
-    background: #F0F0F0;
-    font-size: 50px;
-    text-align: center;
-    padding: 30px;
+.custom-script-example {
+    padding: 80px 20px 0;
 }
 
-.example-video {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.example-text-block {
-    height: 200px;
-    width: 200px;
-    background: mediumaquamarine;
-    text-align: center;
+.rb-example__example {
+    background-color: #f1f1f1;
+    margin: 20px 0;
     padding: 15px;
+}
+
+.rb-example__headline {
+    font-size: 32px;
+    line-height: 36px;
     font-weight: bold;
-    font-size: 40px;
-    text-transform: uppercase;
+}
+
+.rb-example__subheading {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+}
+
+.rb-example__documentation {
+    padding: 10px 0;
+}
+
+.rb-example__login-button {
+    font-size: 24px;
+    border-radius: 8px;
+    background-color: #db0a40;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+}
+
+.rb-example__login-button--hidden {
+    display: none;
 }
