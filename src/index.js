@@ -3,12 +3,14 @@ import * as resolveImageExample from './resolve-image-example';
 import * as renderInlineVideoExample from './render-inline-video-example';
 import * as resolveTranslationExample from './resolve-translation-example';
 import * as rbAccountExample from './rb-account-example';
+import * as panelReusingExample from './panel-reusing-example';
 
 const examples = [
     resolveImageExample,
     renderInlineVideoExample,
     resolveTranslationExample,
-    rbAccountExample
+    rbAccountExample,
+    panelReusingExample
 ];
 
 function start(params) {
