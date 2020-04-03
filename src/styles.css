@@ -20,6 +20,13 @@
     font-weight: bold;
 }
 
+.rb-example__small-subheading {
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+}
+
 .rb-example__documentation {
     padding: 10px 0;
 }

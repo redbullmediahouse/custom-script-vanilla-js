@@ -1,5 +1,6 @@
 let RBAccountSDK;
 let messageEl;
+let favouritesEl;
 
 function start(el, options) {
     const {getRBAccount} = options;
@@ -28,6 +29,34 @@ function start(el, options) {
     messageEl = document.createElement('h3');
     messageEl.className = 'rb-example__login-message';
     accountExampleEl.appendChild(messageEl);
+
+    const favouritesCaptionEl = document.createElement('h3');
+    favouritesCaptionEl.classList.add('rb-example__small-subheading');
+    favouritesCaptionEl.innerHTML = 'Your Favorites are: (Click to remove)';
+    accountExampleEl.appendChild(favouritesCaptionEl);
+
+    favouritesEl = document.createElement('ul');
+    accountExampleEl.appendChild(favouritesEl);
+
+    const addFavouriteCaption = document.createElement('h3');
+    addFavouriteCaption.innerHTML = 'Add new favourite';
+
+    const favouriteIdInput = document.createElement('input');
+    favouriteIdInput.type = 'text';
+    favouriteIdInput.value = 'rrn:content:stories:e6c07f13-2f8d-4092-a270-3d8bf4b957b4:en-INT';
+
+    const addFavouriteButton = document.createElement('button');
+    addFavouriteButton.innerHTML = 'Add';
+    addFavouriteButton.addEventListener('click', () => {
+        const id = favouriteIdInput.value;
+        if (id && id.indexOf('rrn:content') !== -1) {
+            addFavourite(id)
+        }
+    });
+
+    accountExampleEl.appendChild(addFavouriteCaption);
+    accountExampleEl.appendChild(favouriteIdInput);
+    accountExampleEl.appendChild(addFavouriteButton);
 
     el.appendChild(exampleEl);
 
@@ -61,20 +90,85 @@ const loggedInMessage = (user) => `Welcome ${user.userProfile.first_name}, you a
 
 function updateLoggedInMessage(user) {
     const message = user ? loggedInMessage(user) : loggedOutMessage;
+    updateMessage(message);
+}
+
+function updateMessage(message) {
     messageEl.innerText = message;
 }
 
-function onAccountUpdate(user) {
-    const loginButton = document.querySelector('.rb-example__login-button');
-    if (user) {
-        const {userProfile, userTokens} = user;
-        console.log('user logged in', userProfile.first_name, userProfile.last_name);
-        console.log(userTokens);
-        loginButton && loginButton.classList.add('rb-example__login-button--hidden');
+function loadFavourites() {
+    return new Promise((resolve, reject) => {
+        RBAccountSDK.getUserFavorites()
+            .then(favourites => {
+                resolve(favourites);
+            })
+            .catch(e => {
+                console.log(e);
+                resolve({});
+            })
+    });
+}
+
+function updateFavourites() {
+    loadFavourites().then(favourites => {
+        favouritesEl.innerHTML = '';
+        Object.keys(favourites).forEach(id => {
+            const fullId = id + ':en-INT';
+            const listEntry = document.createElement('li');
+            listEntry.innerHTML = fullId;
+            listEntry.style.cursor = 'pointer';
+            listEntry.addEventListener('click', () => {
+                removeFavourite(fullId);
+            });
+            favouritesEl.appendChild(listEntry);
+        });
+    });
+}
+
+function addFavourite(id) {
+    if (id.indexOf('en-INT') === -1) {
+        alert('only en-INT assets are supported at the moment');
     } else {
-        loginButton && loginButton.classList.remove('rb-example__login-button--hidden');
+        RBAccountSDK.addUserFavorite(id)
+            .then(() => updateFavourites())
+            .catch(e => {
+                console.error('Error adding favourite', e);
+            });
     }
-    updateLoggedInMessage(user);
+}
+
+function removeFavourite(id) {
+    RBAccountSDK.deleteUserFavorite(id)
+        .then(() => updateFavourites())
+        .catch(e => {
+            console.error('Error removing favourite', e);
+        });
+}
+
+function userLoggedIn(user) {
+    const {userProfile, userTokens} = user;
+    const loginButton = document.querySelector('.rb-example__login-button');
+    console.log('user logged in', userProfile.first_name, userProfile.last_name);
+    console.log(userTokens);
+    loginButton && loginButton.classList.add('rb-example__login-button--hidden');
+
+    updateMessage(loggedInMessage(user));
+    updateFavourites();
+}
+
+function userLoggedOut() {
+    const loginButton = document.querySelector('.rb-example__login-button');
+    loginButton && loginButton.classList.remove('rb-example__login-button--hidden');
+    updateMessage(loggedOutMessage);
+}
+
+function onAccountUpdate(user) {
+    if (user) {
+        userLoggedIn(user)
+    } else {
+        userLoggedOut()
+    }
 }
 
 export {start, attach};
