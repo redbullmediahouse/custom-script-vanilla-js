@@ -1,19 +1,33 @@
 # Resolve Image URLs
+The recommended way to load image sources is by using our GraphQL API.
+We have prepared a "Stored Query" which returns the Image URL of an image asset, based on some input values,
+such as width and height.
 
-## API
-resolveImage accepts one argument.
-  1. An object with the following possibilities:
-    imageEndpoint: A content repository endpoint pointing to an image asset (e.g. /v3/api/composition/v3/query/en-INT?filter[type]=images&page[limit]=1)
-    options:
-      width: The desired width of the image (required).
-      and one of the following:
-        - aspectRatio: The aspect ratio as number, e.g. 1.78 for 16/9 (calculated as width / height)
-        - height: The desired height of the image
+See the code on how to use the stored query and get the image source from the response.
 
-    NOTE: The width, height and aspectRatio parameters only work for images that do have an imageProvider other than 'absolute', as the transformation is done on the image server, not on the client.
+[GraphQL Documentation for Image Sources](https://api.developers.redbull.com/docs/schema-extensions#image-source)
 
-## Usage Examples:
-* `resolveImageUrl({imageEndpoint: "/v3/api/composition/v3/query/en-INT?filter[type]=images&page[limit]=1", options: { width: 500, aspectRatio: 1.78}});`
-* `resolveImageUrl({imageEndpoint: "/v3/api/composition/v3/query/en-INT?filter[type]=images&page[limit]=1", options: { width: 500, height: 200}});`
+## Query and Query Variables
+Behind the scenes we are executing the following query:
+
+```
+query ImageData($id: String!, $width: Int, $height: Int, $mode: ImageModes) {
+  resource(id: $id) {
+    ... on Image {
+      imageSrc(width: $width, height: $height, mode: $mode)
+    }
+  }
+}
+```
+
+The query supports the following query variables:
+```
+{
+  "width": 500,
+  "height": 250,
+  "mode": "scale",
+  "id": "rrn:content:images:062e3777-9365-40ec-a328-1279f69307e2:en-INT"
+}
+```
 
 ## Example
