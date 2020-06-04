@@ -1,6 +1,6 @@
 import '../../styles.css';
 import '../../markdown.css';
-import markdown from './translations.md';
+import markdown from './README.md';
 
 function start(params) {
     /*

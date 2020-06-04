@@ -1,6 +1,6 @@
 import '../../styles.css';
 import '../../markdown.css';
-import markdown from './inline-videos.md';
+import markdown from './README.md';
 
 function start(params) {
     /*

@@ -1,7 +1,7 @@
 import '../../styles.css';
 import '../../markdown.css';
 
-import markdown from './rb-account.md';
+import markdown from './README.md';
 
 let RBAccountSDK;
 let scriptEl;

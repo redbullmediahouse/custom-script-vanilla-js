@@ -6,7 +6,7 @@ module.exports = {
         panelReusing: './src/examples/panel-reusing/panel-reusing-example.js',
         rbAccount: './src/examples/rb-account/rb-account-example.js',
         inlineVideo: './src/examples/inline-videos/render-inline-video-example.js',
-        resolveImageUrl: './src/examples/images/resolve-image-example.js',
+        resolveImageUrl: './src/examples/images/image-sources.js',
         resolveTranslation: './src/examples/translations/resolve-translation-example.js'
     },
     mode: 'development',
