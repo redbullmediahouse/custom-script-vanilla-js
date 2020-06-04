@@ -1,6 +1,6 @@
 import '../../styles.css';
 import '../../markdown.css';
-import markdown from './panel-reusing.md';
+import markdown from './README.md';
 
 let scriptEl;
 
