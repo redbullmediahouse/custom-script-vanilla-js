@@ -56,6 +56,9 @@ function start(params) {
     return getRBAccount().then(({RBAccounts, user}) => {
         RBAccountSDK = RBAccounts;
 
+        // Update the Token for your activation
+        // RBAccounts.setToken({application: '123456789'})
+
         RBAccountSDK.onEvent('signedIn', onAccountUpdate);
         RBAccountSDK.onEvent('sessionChecked', onAccountUpdate);
         RBAccountSDK.onEvent('loggedOut', onAccountUpdate);
