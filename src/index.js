@@ -28,6 +28,9 @@ function start(params) {
                     <li class="example-list__example">
                         <a class="example-list__example-link"  href="/pl-ay/local/8080/panelReusing.js">Panel Reusing and Server Side Rendering</a>
                     </li>
+                    <li class="example-list__example">
+                        <a class="example-list__example-link"  href="/pl-ay/local/8080/storedQueries.js">Stored Queries</a>
+                    </li>
                 </ul>
             </div>            
         </div>
