@@ -6,6 +6,9 @@ const endpoint = 'https://edge-graphql.crepo-staging.redbullaws.com/v1/queries';
 // Add your Content Repository API Key here
 // Get in contact with
 const apiKey = '';
+if (apiKey === '') {
+    throw new Error('Please provide your API Key')
+}
 
 function loadStoredQueryFile() {
     const fileContents = fs.readFileSync(path.join(__dirname, 'ExampleQuery.graphql'));
@@ -13,9 +16,7 @@ function loadStoredQueryFile() {
 }
 
 async function saveStoredQuery(query) {
-    if (apiKey === '') {
-        throw new Error('Please provide your API Key')
-    }
+
     try {
         const response = await axios.post(endpoint, {query}, {
             headers: {'API-Key': apiKey, 'Content-Type': 'application/json'}

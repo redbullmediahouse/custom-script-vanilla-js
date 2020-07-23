@@ -15,9 +15,7 @@ Please Note: You need to provide your own API Key to be able to run the example.
 Also add this key to your `.graphqlconfig` file to enable IDE and tooling support.
 
 ## Running the example script
-Either run `save-stored-query.js` from your IDE directly or run using node:
+Either run `save-stored-query.js` from your IDE directly or run using npm:
 ```
-node save-stored-query.js
-or
 npm run save-stored-query
 ```
