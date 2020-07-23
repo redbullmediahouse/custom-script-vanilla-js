@@ -7,7 +7,7 @@
         "url": "https://graphql.crepo-staging.redbullaws.com/v1/graphql",
         "headers": {
           "user-agent": "JS GraphQL",
-          "API-Key": "test"
+          "API-Key": "<YOUR_API_KEY_HERE>"
         },
         "introspect": true
       }
