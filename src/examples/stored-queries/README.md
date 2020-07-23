@@ -12,9 +12,12 @@ In addition to that, there is the possibility to create queries using our Rest A
 Check the source code to see how to save a stored query. This can be integrated into your CI Pipeline to created stored queries whenever the source query changed.
 
 Please Note: You need to provide your own API Key to be able to run the example. Get in touch with us if you don't have one yet.
+Also add this key to your `.graphqlconfig` file to enable IDE and tooling support.
 
 ## Running the example script
 Either run `save-stored-query.js` from your IDE directly or run using node:
 ```
 node save-stored-query.js
+or
+npm run save-stored-query
 ```
