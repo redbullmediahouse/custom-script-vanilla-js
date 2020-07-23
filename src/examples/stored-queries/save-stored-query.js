@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 
-const endpoint = 'https://edge-graphql.crepo-staging.redbullaws.com/v1/queries';
+const endpoint = 'https://graphql.crepo-staging.redbullaws.com/v1/queries';
 // Add your Content Repository API Key here
 // Get in contact with
 const apiKey = '';
