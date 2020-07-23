@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "serve": "webpack-dev-server"
+    "serve": "webpack-dev-server",
+    "save-stored-query": "node src/examples/stored-queries/save-stored-query.js"
   },
   "devDependencies": {
     "axios": "^0.19.2",
