@@ -1,0 +1,16 @@
+query VanillaJSExampleQuery {
+    feed(filter: {type: {eq: "stories"}}, first: 1) {
+        edges {
+            node {
+                title {
+                    text
+                }
+                featuredMedia {
+                    ... on Image {
+                        imageSrc(width: 600)
+                    }
+                }
+            }
+        }
+    }
+}

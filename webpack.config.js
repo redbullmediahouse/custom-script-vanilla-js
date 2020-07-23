@@ -7,7 +7,8 @@ module.exports = {
         rbAccount: './src/examples/rb-account/rb-account-example.js',
         inlineVideo: './src/examples/inline-videos/render-inline-video-example.js',
         resolveImageUrl: './src/examples/images/image-sources.js',
-        resolveTranslation: './src/examples/translations/resolve-translation-example.js'
+        resolveTranslation: './src/examples/translations/resolve-translation-example.js',
+        storedQueries: './src/examples/stored-queries/stored-queries-example.js'
     },
     mode: 'development',
     output: {

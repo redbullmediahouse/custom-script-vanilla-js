@@ -1,0 +1,16 @@
+{
+  "name": "Content Repository Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Content Repository Staging Endpoint": {
+        "url": "https://graphql.crepo-staging.redbullaws.com/v1/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "API-Key": "<YOUR_API_KEY_HERE>"
+        },
+        "introspect": true
+      }
+    }
+  }
+}
