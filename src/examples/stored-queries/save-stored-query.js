@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const endpoint = 'https://graphql.crepo-staging.redbullaws.com/v1/queries';
 // Add your Content Repository API Key here
-// Get in contact with
+// Get in contact with the RBCOM engineering team
 const apiKey = '';
 if (apiKey === '') {
     throw new Error('Please provide your API Key')
