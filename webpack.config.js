@@ -12,6 +12,7 @@ module.exports = {
     },
     mode: 'development',
     output: {
+        library: 'customScript',
         libraryTarget: 'amd',
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
