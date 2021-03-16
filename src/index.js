@@ -1,4 +1,4 @@
-import './styles.css';
+import styles from './styles.css';
 
 function start(params) {
     /*
@@ -9,6 +9,9 @@ function start(params) {
     const {el, config, options} = params;
 
     el.innerHTML = `
+        <style type="text/css">
+            ${styles}    
+        </style>
         <div class="custom-script-example">
             <h1 class="rb-example__headline">VanillaJS Custom Script Examples</h1>
             <div>

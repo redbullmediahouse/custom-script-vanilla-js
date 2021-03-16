@@ -1,5 +1,5 @@
-import '../../styles.css';
-import '../../markdown.css';
+import styles from '../../styles.css';
+import markdownStyles from '../../markdown.css';
 import markdown from './README.md';
 
 let scriptEl;
@@ -14,6 +14,12 @@ function start(params) {
     scriptEl = el;
 
     el.innerHTML = `
+        <style type="text/css">
+            ${styles}
+        </style>
+        <style type="text/css">
+            ${markdownStyles}
+        </style>
         <div class="rb-example__example rb-example__rb-reusing">
             <div class="rb-example__documentation markdown-body">
                 ${markdown}
