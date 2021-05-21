@@ -3,8 +3,8 @@ You can use this feature to integrate Red Bull Accounts for Login purposes.
 Usually this is used for Activations which need the user to be logged in and e.g. redeem codes.
 
 ## Tokens
-Red Bull Accounts needs a token to work as expected. This is especially important for activations, so users are
-assigned to the correct project in our Backend.
+Red Bull Accounts needs a token to work as expected. There is a default token pre-configured, but it is recommended to use a custom token
+created for your activation, so users are assigned to the correct project in our Backend.
 
 If you have a custom token for your project, you need to tell RB Accounts to use this token for signups and logins on the current page.
 
