@@ -16,10 +16,12 @@ function start(params) {
     const mode = "crop"; // can be `crop` or `scale`
 
     // Important: Make sure to change the apiKey `test` to your own
+    // Even more important: DO NOT USE THE API KEY ON THE FRONT END
+    // Please make a proxy backend service to hide your API so it is not public
     const apiKey = 'test'
     const storedQueryId = 'rrn:gql-queries:5b425015-4580-5cd3-ba10-6cb45cedcddc';
     const imageId = 'rrn:content:images:062e3777-9365-40ec-a328-1279f69307e2:en-INT';
-    const storedQueryUrl = `https://edge-graphql.crepo-production.redbullaws.com/v1/graphql/${storedQueryId}?id=${encodeURIComponent(imageId)}&width=${width}&height=${height}&mode=${mode}&apiKey=${apiKey}`;
+    const storedQueryUrl = `https://api.redbull.com/v1/graphql/${storedQueryId}?id=${encodeURIComponent(imageId)}&width=${width}&height=${height}&mode=${mode}&apiKey=${apiKey}`;
 
     return fetch(storedQueryUrl)
         .then(res => res.json())
