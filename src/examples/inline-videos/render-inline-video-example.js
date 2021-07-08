@@ -28,7 +28,7 @@ function start(params) {
     `
 
     const videoExampleEl = el.querySelector('.rb-example__video');
-    const exampleVideoEndpoint = '/v3/api/graphql/v1/v3/query/en-INT?filter[type]=videos&page[limit]=1&rb3Schema=v1:video';
+    const exampleVideoEndpoint = '/v3/query/en-INT?filter[type]=videos&page[limit]=1';
 
     return renderInlineVideoPlayer(exampleVideoEndpoint, null, videoExampleEl).then(() => ({stop: () => {
         console.log('stop');
