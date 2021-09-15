@@ -15,10 +15,13 @@ module.exports = {
         library: 'customScript',
         libraryTarget: 'amd',
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: ''
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        static: {
+            directory: path.join(__dirname, 'dist')
+        },
         compress: true,
         port: 8080,
         https: true,
@@ -31,8 +34,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'to-string-loader',
-                    'css-loader'
+                    { loader: 'css-loader' }
                 ]
             },
             {
