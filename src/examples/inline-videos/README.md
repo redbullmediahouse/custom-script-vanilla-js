@@ -14,6 +14,6 @@ the `renderInlineVideoPlayer`, which is passed into the custom script.
 A Promise indicating if the player was rendered successfully.
 
 ## Usage
-`renderInlineVideoPlayer("/v3/api/graphql/v1/v3/query/en-INT?filter[type]=videos&page[limit]=1", null, exampleEl)`
+`renderInlineVideoPlayer("/v3/query/en-INT?filter[type]=videos&page[limit]=1", null, exampleEl)`
 
 ## Example
