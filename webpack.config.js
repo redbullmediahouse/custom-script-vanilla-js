@@ -1,4 +1,5 @@
 const path = require('path');
+const uuid = require('uuid');
 
 module.exports = {
     entry: {
@@ -12,22 +13,25 @@ module.exports = {
     },
     mode: 'development',
     output: {
-        library: 'customScript',
-        libraryTarget: 'amd',
+        uniqueName: `custom-script-${uuid.v4()}`,
+        library: {
+            name:'customScript',
+            type: 'amd'
+        },
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
         publicPath: ''
     },
     devServer: {
+        port: 8080,
         static: {
             directory: path.join(__dirname, 'dist')
         },
-        compress: true,
-        port: 8080,
-        https: true,
         headers: {
             'Access-Control-Allow-Origin': '*'
-        }
+        },
+        compress: true,
+        https: true
     },
     module: {
         rules: [
